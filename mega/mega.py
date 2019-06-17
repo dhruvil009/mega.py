@@ -84,8 +84,7 @@ class Mega(object):
 
             encrypted_sid = mpi_to_int(base64_url_decode(resp['csid']))
             rsa_decrypter = RSA.construct(
-                (self.rsa_private_key[0] * self.rsa_private_key[1],
-                 0L, self.rsa_private_key[2], self.rsa_private_key[0],
+                (self.rsa_private_key[0] * self.rsa_private_key[1], 0L, self.rsa_private_key[2], self.rsa_private_key[0],
                  self.rsa_private_key[1]))
 
             sid = '%x' % rsa_decrypter.key._decrypt(encrypted_sid)
